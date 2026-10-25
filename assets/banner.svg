@@ -1,240 +1,273 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 380" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="100%" height="100%">
   <defs>
-    <!-- Background Gradients -->
-    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#080C15" />
-      <stop offset="50%" stop-color="#0C1527" />
-      <stop offset="100%" stop-color="#070A10" />
+    <!-- Background Canvas Gradient -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#030712" />
+      <stop offset="40%" stop-color="#0B132B" />
+      <stop offset="80%" stop-color="#080E1E" />
+      <stop offset="100%" stop-color="#020617" />
     </linearGradient>
 
-    <!-- Accent Gradients -->
-    <linearGradient id="azure-glow" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0078D4" stop-opacity="0.3" />
-      <stop offset="100%" stop-color="#00B4D8" stop-opacity="0" />
-    </linearGradient>
+    <!-- Glowing Radial Accents -->
+    <radialGradient id="azure-orb" cx="15%" cy="20%" r="45%">
+      <stop offset="0%" stop-color="#0078D4" stop-opacity="0.32" />
+      <stop offset="60%" stop-color="#0284C7" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
 
-    <linearGradient id="aws-glow" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FF9900" stop-opacity="0.25" />
-      <stop offset="100%" stop-color="#FF9900" stop-opacity="0" />
-    </linearGradient>
+    <radialGradient id="aws-orb" cx="85%" cy="80%" r="50%">
+      <stop offset="0%" stop-color="#FF9900" stop-opacity="0.22" />
+      <stop offset="50%" stop-color="#D97706" stop-opacity="0.06" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
 
-    <linearGradient id="tf-glow" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#844FBA" stop-opacity="0.25" />
-      <stop offset="100%" stop-color="#844FBA" stop-opacity="0" />
-    </linearGradient>
+    <radialGradient id="purple-orb" cx="60%" cy="30%" r="35%">
+      <stop offset="0%" stop-color="#6366F1" stop-opacity="0.20" />
+      <stop offset="70%" stop-color="#4F46E5" stop-opacity="0.03" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
 
-    <!-- Title Gradient -->
-    <linearGradient id="title-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+    <!-- Typography Gradients -->
+    <linearGradient id="name-grad" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#FFFFFF" />
-      <stop offset="70%" stop-color="#F1F5F9" />
-      <stop offset="100%" stop-color="#94A3B8" />
+      <stop offset="60%" stop-color="#F8FAFC" />
+      <stop offset="100%" stop-color="#CBD5E1" />
     </linearGradient>
 
-    <!-- Cyan/Blue Text Gradient -->
-    <linearGradient id="sub-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+    <linearGradient id="title-grad" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="50%" stop-color="#60A5FA" />
       <stop offset="100%" stop-color="#818CF8" />
     </linearGradient>
 
-    <!-- Glassmorphism Card Gradient -->
-    <linearGradient id="card-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1E293B" stop-opacity="0.7" />
-      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.8" />
+    <!-- Glassmorphic Card Surface -->
+    <linearGradient id="glass-surface" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B" stop-opacity="0.65" />
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.85" />
     </linearGradient>
 
-    <!-- Subtle Grid Pattern -->
-    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1E293B" stroke-width="0.7" stroke-opacity="0.4" />
-      <circle cx="40" cy="40" r="1" fill="#38BDF8" fill-opacity="0.3" />
+    <!-- Gradient Border Stroke -->
+    <linearGradient id="border-stroke" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.6" />
+      <stop offset="50%" stop-color="#334155" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#F59E0B" stop-opacity="0.4" />
+    </linearGradient>
+
+    <!-- Subtle Dot Grid Pattern -->
+    <pattern id="dot-grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#334155" fill-opacity="0.5" />
     </pattern>
 
-    <!-- Filter for Glow Effects -->
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="15" result="blur" />
-      <feComposite in="SourceGraphic" in2="blur" operator="over" />
-    </filter>
+    <!-- Subtle Grid Mask -->
+    <mask id="fade-mask">
+      <rect width="1200" height="400" fill="url(#mask-gradient)" />
+    </mask>
+    <linearGradient id="mask-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.2" />
+      <stop offset="40%" stop-color="#FFFFFF" stop-opacity="0.8" />
+      <stop offset="70%" stop-color="#FFFFFF" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.3" />
+    </linearGradient>
   </defs>
 
   <style>
-    .font-main { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; }
-    .title { font-size: 46px; font-weight: 800; letter-spacing: -0.5px; }
-    .subtitle { font-size: 19px; font-weight: 600; letter-spacing: 0.2px; }
-    .badge-text { font-size: 12px; font-weight: 600; letter-spacing: 0.5px; }
-    .metric-value { font-size: 20px; font-weight: 700; }
-    .metric-label { font-size: 11px; font-weight: 500; fill: #94A3B8; }
+    .font-sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+    .name-text { font-size: 44px; font-weight: 800; letter-spacing: -0.8px; }
+    .role-text { font-size: 18px; font-weight: 600; letter-spacing: 0.2px; }
+    .desc-text { font-size: 13.5px; font-weight: 400; fill: #94A3B8; }
+    .pill-label { font-size: 11px; font-weight: 700; letter-spacing: 0.8px; }
+    .metric-num { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; }
+    .metric-sub { font-size: 11px; font-weight: 500; fill: #94A3B8; }
+    .node-text { font-size: 9.5px; font-weight: 700; fill: #E2E8F0; }
   </style>
 
-  <!-- Background Base -->
-  <rect width="1200" height="380" rx="16" fill="url(#bg-grad)" />
+  <!-- Background Layer -->
+  <rect width="1200" height="400" rx="18" fill="url(#bg)" />
 
-  <!-- Grid Overlay -->
-  <rect width="1200" height="380" rx="16" fill="url(#grid)" />
+  <!-- Dot Grid with Mask -->
+  <rect width="1200" height="400" rx="18" fill="url(#dot-grid)" mask="url(#fade-mask)" />
 
-  <!-- Ambient Glow Orbs -->
-  <circle cx="150" cy="80" r="220" fill="url(#azure-glow)" />
-  <circle cx="1050" cy="300" r="260" fill="url(#aws-glow)" />
-  <circle cx="650" cy="180" r="180" fill="url(#tf-glow)" />
+  <!-- Luminous Orbs -->
+  <rect width="1200" height="400" rx="18" fill="url(#azure-orb)" />
+  <rect width="1200" height="400" rx="18" fill="url(#aws-orb)" />
+  <rect width="1200" height="400" rx="18" fill="url(#purple-orb)" />
 
-  <!-- Decorative Border -->
-  <rect x="1" y="1" width="1198" height="378" rx="15" fill="none" stroke="#334155" stroke-width="1.2" stroke-opacity="0.6" />
+  <!-- Outer Card Frame -->
+  <rect x="1.5" y="1.5" width="1197" height="397" rx="17" fill="none" stroke="url(#border-stroke)" stroke-width="1.2" />
 
-  <!-- ================= LEFT COLUMN: HERO CONTENT ================= -->
+  <!-- ==================== LEFT COLUMN: EXECUTIVE PROFILE ==================== -->
 
-  <!-- Top Pill Badge -->
-  <g transform="translate(60, 42)">
-    <rect width="320" height="28" rx="14" fill="#0369A1" fill-opacity="0.25" stroke="#0284C7" stroke-width="1" stroke-opacity="0.6" />
-    <circle cx="14" cy="14" r="4" fill="#38BDF8" />
-    <text x="28" y="18" fill="#38BDF8" class="font-main badge-text">ENTERPRISE CLOUD ARCHITECTURE &amp; STRATEGY</text>
+  <!-- Status Indicator Badge -->
+  <g transform="translate(56, 44)">
+    <rect width="365" height="28" rx="14" fill="#0F172A" fill-opacity="0.9" stroke="#1E293B" stroke-width="1.2" />
+    <!-- Glowing Status Dot -->
+    <circle cx="16" cy="14" r="5" fill="#10B981" />
+    <circle cx="16" cy="14" r="8" fill="none" stroke="#10B981" stroke-width="1.5" opacity="0.4" />
+    <text x="32" y="18" fill="#38BDF8" class="font-sans pill-label">ENTERPRISE CLOUD ARCHITECTURE &amp; STRATEGY</text>
   </g>
 
-  <!-- Name -->
-  <text x="60" y="125" fill="url(#title-grad)" class="font-main title">RANJAN BHARDWAJ</text>
+  <!-- Full Name -->
+  <text x="56" y="122" fill="url(#name-grad)" class="font-sans name-text">RANJAN BHARDWAJ</text>
 
-  <!-- Role Subtitle -->
-  <text x="60" y="162" fill="url(#sub-grad)" class="font-main subtitle">Cloud Solutions Architect | Enterprise Strategy &amp; DevSecOps</text>
+  <!-- Primary Executive Title -->
+  <text x="56" y="156" fill="url(#title-grad)" class="font-sans role-text">Principal Cloud Solutions Architect &amp; Enterprise Strategist</text>
 
-  <!-- Description / Core Strengths -->
-  <text x="60" y="195" fill="#94A3B8" class="font-main" font-size="14px" font-weight="400">
-    Azure Landing Zones (CAF) • Multi-Cloud (Azure &amp; AWS) • Modular Terraform • 4-Tier Zero Trust
+  <!-- Core Mission Description -->
+  <text x="56" y="186" class="font-sans desc-text">
+    Architecting CAF Landing Zones • Multi-Cloud (Azure &amp; AWS) • Modular Terraform • 4-Tier Zero Trust
   </text>
 
-  <!-- Skill Pill Tags -->
-  <g transform="translate(60, 222)">
-    <!-- Tag 1: Azure -->
+  <!-- Capability Badges Row -->
+  <g transform="translate(56, 212)">
+    <!-- Badge 1: Azure Landing Zone -->
     <g transform="translate(0, 0)">
-      <rect width="120" height="28" rx="6" fill="#1E293B" stroke="#0078D4" stroke-width="1.2" />
-      <text x="60" y="18" fill="#E2E8F0" class="font-main badge-text" text-anchor="middle">Azure (Primary)</text>
+      <rect width="138" height="28" rx="6" fill="#0C1B33" stroke="#0284C7" stroke-width="1" />
+      <circle cx="12" cy="14" r="3.5" fill="#0284C7" />
+      <text x="24" y="18" fill="#E2E8F0" class="font-sans" font-size="11.5px" font-weight="600">Azure CAF Hub-Spoke</text>
     </g>
 
-    <!-- Tag 2: AWS -->
-    <g transform="translate(130, 0)">
-      <rect width="110" height="28" rx="6" fill="#1E293B" stroke="#FF9900" stroke-width="1.2" />
-      <text x="55" y="18" fill="#E2E8F0" class="font-main badge-text" text-anchor="middle">AWS Hands-on</text>
+    <!-- Badge 2: AWS Multi-Cloud -->
+    <g transform="translate(148, 0)">
+      <rect width="115" height="28" rx="6" fill="#1E190A" stroke="#D97706" stroke-width="1" />
+      <circle cx="12" cy="14" r="3.5" fill="#F59E0B" />
+      <text x="24" y="18" fill="#E2E8F0" class="font-sans" font-size="11.5px" font-weight="600">AWS Multi-Cloud</text>
     </g>
 
-    <!-- Tag 3: Terraform -->
-    <g transform="translate(250, 0)">
-      <rect width="125" height="28" rx="6" fill="#1E293B" stroke="#844FBA" stroke-width="1.2" />
-      <text x="62" y="18" fill="#E2E8F0" class="font-main badge-text" text-anchor="middle">Terraform (IaC)</text>
+    <!-- Badge 3: Terraform IaC -->
+    <g transform="translate(273, 0)">
+      <rect width="128" height="28" rx="6" fill="#1C142B" stroke="#7C3AED" stroke-width="1" />
+      <circle cx="12" cy="14" r="3.5" fill="#A855F7" />
+      <text x="24" y="18" fill="#E2E8F0" class="font-sans" font-size="11.5px" font-weight="600">Terraform Modular</text>
     </g>
 
-    <!-- Tag 4: Kubernetes -->
-    <g transform="translate(385, 0)">
-      <rect width="105" height="28" rx="6" fill="#1E293B" stroke="#326CE5" stroke-width="1.2" />
-      <text x="52" y="18" fill="#E2E8F0" class="font-main badge-text" text-anchor="middle">AKS / K8s</text>
+    <!-- Badge 4: DevSecOps -->
+    <g transform="translate(411, 0)">
+      <rect width="105" height="28" rx="6" fill="#06201B" stroke="#059669" stroke-width="1" />
+      <circle cx="12" cy="14" r="3.5" fill="#10B981" />
+      <text x="24" y="18" fill="#E2E8F0" class="font-sans" font-size="11.5px" font-weight="600">DevSecOps</text>
     </g>
 
-    <!-- Tag 5: DevSecOps -->
-    <g transform="translate(500, 0)">
-      <rect width="120" height="28" rx="6" fill="#1E293B" stroke="#10B981" stroke-width="1.2" />
-      <text x="60" y="18" fill="#E2E8F0" class="font-main badge-text" text-anchor="middle">DevSecOps</text>
+    <!-- Badge 5: FinOps -->
+    <g transform="translate(526, 0)">
+      <rect width="90" height="28" rx="6" fill="#1A1829" stroke="#6366F1" stroke-width="1" />
+      <circle cx="12" cy="14" r="3.5" fill="#818CF8" />
+      <text x="24" y="18" fill="#E2E8F0" class="font-sans" font-size="11.5px" font-weight="600">FinOps</text>
     </g>
   </g>
 
-  <!-- Bottom Metric Strip -->
-  <g transform="translate(60, 280)">
-    <!-- Metric Card Background -->
-    <rect width="560" height="66" rx="10" fill="url(#card-grad)" stroke="#334155" stroke-width="1" />
+  <!-- High-Impact Metrics Strip -->
+  <g transform="translate(56, 268)">
+    <!-- Container Card -->
+    <rect width="560" height="74" rx="10" fill="url(#glass-surface)" stroke="#334155" stroke-width="1" />
 
-    <!-- Metric 1 -->
-    <g transform="translate(25, 20)">
-      <text x="0" y="16" fill="#38BDF8" class="font-main metric-value">15+ Yrs</text>
-      <text x="0" y="34" class="font-main metric-label">IT &amp; Telecom Backbone</text>
+    <!-- Metric 1: Total Experience -->
+    <g transform="translate(24, 18)">
+      <text x="0" y="20" fill="#38BDF8" class="font-sans metric-num">15+ Yrs</text>
+      <text x="0" y="38" class="font-sans metric-sub">Telecom &amp; IT Backbone</text>
     </g>
 
     <!-- Divider 1 -->
-    <line x1="150" y1="12" x2="150" y2="54" stroke="#334155" stroke-width="1" />
+    <line x1="150" y1="14" x2="150" y2="60" stroke="#334155" stroke-width="1" />
 
-    <!-- Metric 2 -->
-    <g transform="translate(170, 20)">
-      <text x="0" y="16" fill="#10B981" class="font-main metric-value">6+ Yrs</text>
-      <text x="0" y="34" class="font-main metric-label">Enterprise Cloud</text>
+    <!-- Metric 2: Cloud Architecture -->
+    <g transform="translate(170, 18)">
+      <text x="0" y="20" fill="#10B981" class="font-sans metric-num">6+ Yrs</text>
+      <text x="0" y="38" class="font-sans metric-sub">Enterprise Cloud SME</text>
     </g>
 
     <!-- Divider 2 -->
-    <line x1="285" y1="12" x2="285" y2="54" stroke="#334155" stroke-width="1" />
+    <line x1="285" y1="14" x2="285" y2="60" stroke="#334155" stroke-width="1" />
 
-    <!-- Metric 3 -->
-    <g transform="translate(305, 20)">
-      <text x="0" y="16" fill="#F59E0B" class="font-main metric-value">-60%</text>
-      <text x="0" y="34" class="font-main metric-label">IaC Provisioning Time</text>
+    <!-- Metric 3: IaC Velocity -->
+    <g transform="translate(305, 18)">
+      <text x="0" y="20" fill="#F59E0B" class="font-sans metric-num">-60%</text>
+      <text x="0" y="38" class="font-sans metric-sub">IaC Provisioning Time</text>
     </g>
 
     <!-- Divider 3 -->
-    <line x1="435" y1="12" x2="435" y2="54" stroke="#334155" stroke-width="1" />
+    <line x1="435" y1="14" x2="435" y2="60" stroke="#334155" stroke-width="1" />
 
-    <!-- Metric 4 -->
-    <g transform="translate(455, 20)">
-      <text x="0" y="16" fill="#A855F7" class="font-main metric-value">98%+ SLA</text>
-      <text x="0" y="34" class="font-main metric-label">Zero-Downtime HA/DR</text>
+    <!-- Metric 4: Production SLA -->
+    <g transform="translate(455, 18)">
+      <text x="0" y="20" fill="#A855F7" class="font-sans metric-num">98%+ SLA</text>
+      <text x="0" y="38" class="font-sans metric-sub">Zero-Downtime Resiliency</text>
     </g>
   </g>
 
+  <!-- ==================== RIGHT COLUMN: ARCHITECTURAL SCHEMATIC ==================== -->
+  <g transform="translate(710, 44)">
+    <!-- Outer Glass Console Card -->
+    <rect width="434" height="308" rx="14" fill="url(#glass-surface)" stroke="#334155" stroke-width="1.2" />
 
-  <!-- ================= RIGHT COLUMN: ARCHITECTURAL DIAGRAM GRAPHIC ================= -->
-  <g transform="translate(730, 40)">
-    <!-- Right Enclosing Card -->
-    <rect width="410" height="305" rx="14" fill="url(#card-grad)" stroke="#334155" stroke-width="1.2" />
+    <!-- Header Terminal Bar -->
+    <rect width="434" height="38" rx="14" fill="#0F172A" />
+    <circle cx="20" cy="19" r="4.5" fill="#EF4444" opacity="0.8" />
+    <circle cx="34" cy="19" r="4.5" fill="#F59E0B" opacity="0.8" />
+    <circle cx="48" cy="19" r="4.5" fill="#10B981" opacity="0.8" />
+    <text x="225" y="24" fill="#94A3B8" class="font-sans pill-label" text-anchor="middle">CAF HUB-AND-SPOKE TOPOLOGY</text>
 
-    <!-- Top Card Bar -->
-    <rect width="410" height="38" rx="14" fill="#1E293B" fill-opacity="0.6" />
-    <circle cx="24" cy="19" r="5" fill="#EF4444" />
-    <circle cx="40" cy="19" r="5" fill="#F59E0B" />
-    <circle cx="56" cy="19" r="5" fill="#10B981" />
-    <text x="205" y="24" fill="#94A3B8" class="font-main badge-text" text-anchor="middle">ENTERPRISE CLOUD ARCHITECTURE TOPOLOGY</text>
+    <!-- Hub Connection Lines with Neon Dash -->
+    <!-- Line: Hub to Spoke 1 (AKS) -->
+    <line x1="217" y1="130" x2="95" y2="90" stroke="#0284C7" stroke-width="1.8" stroke-dasharray="3 3" opacity="0.85" />
+    <!-- Line: Hub to Spoke 2 (PaaS) -->
+    <line x1="217" y1="130" x2="339" y2="90" stroke="#0284C7" stroke-width="1.8" stroke-dasharray="3 3" opacity="0.85" />
+    <!-- Line: Hub to Spoke 3 (DevSecOps) -->
+    <line x1="217" y1="130" x2="95" y2="215" stroke="#10B981" stroke-width="1.8" stroke-dasharray="3 3" opacity="0.85" />
+    <!-- Line: Hub to Spoke 4 (ExpressRoute) -->
+    <line x1="217" y1="130" x2="339" y2="215" stroke="#F59E0B" stroke-width="1.8" stroke-dasharray="3 3" opacity="0.85" />
 
-    <!-- Central Hub Node (Azure Firewall & ExpressRoute) -->
-    <g transform="translate(205, 120)">
-      <!-- Pulsing Outer Ring -->
-      <circle cx="0" cy="0" r="38" fill="none" stroke="#0284C7" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.8" />
-      <circle cx="0" cy="0" r="30" fill="#0C4A6E" stroke="#38BDF8" stroke-width="2" />
-      <!-- Cloud Icon SVG inside Hub -->
-      <path d="M-10 4 C-14 4 -16 1 -16 -2 C-16 -6 -13 -8 -9 -8 C-8 -13 -3 -15 2 -14 C6 -13 9 -10 9 -6 C13 -6 16 -3 16 1 C16 5 13 8 9 8 L-10 8 Z" fill="#38BDF8" />
-      <text x="0" y="24" fill="#E2E8F0" class="font-main" font-size="10px" font-weight="700" text-anchor="middle">SECURE HUB</text>
+    <!-- Central Hub Node -->
+    <g transform="translate(217, 130)">
+      <!-- Outer Pulsing Halo -->
+      <circle cx="0" cy="0" r="38" fill="none" stroke="#38BDF8" stroke-width="1.2" stroke-dasharray="5 3" opacity="0.7" />
+      <circle cx="0" cy="0" r="30" fill="#082F49" stroke="#0284C7" stroke-width="2.2" />
+      <!-- Cloud & Shield Icon -->
+      <path d="M-9 2 C-13 2 -15 -1 -15 -4 C-15 -7 -12 -9 -8 -9 C-7 -13 -3 -15 2 -14 C6 -13 9 -10 9 -6 C13 -6 15 -3 15 0 C15 4 12 7 8 7 L-9 7 Z" fill="#38BDF8" />
+      <text x="0" y="22" class="font-sans node-text" text-anchor="middle">CENTRAL HUB</text>
+      <text x="0" y="32" class="font-sans" font-size="7.5px" fill="#7DD3FC" font-weight="600" text-anchor="middle">Azure Firewall • UDR</text>
     </g>
 
-    <!-- Spoke 1: AKS & Containers (Top Left) -->
-    <g transform="translate(85, 80)">
-      <line x1="25" y1="15" x2="90" y2="35" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="2 2" opacity="0.7" />
-      <circle cx="0" cy="0" r="24" fill="#1E293B" stroke="#326CE5" stroke-width="1.5" />
-      <!-- Hexagon / K8s -->
-      <polygon points="0,-10 9,-5 9,5 0,10 -9,5 -9,-5" fill="#326CE5" opacity="0.8" />
-      <text x="0" y="18" fill="#94A3B8" class="font-main" font-size="9px" font-weight="600" text-anchor="middle">AKS SPOKE</text>
+    <!-- Spoke 1: AKS Platform (Top-Left) -->
+    <g transform="translate(95, 90)">
+      <circle cx="0" cy="0" r="25" fill="#0F172A" stroke="#38BDF8" stroke-width="1.6" />
+      <!-- K8s polygon -->
+      <polygon points="0,-8 7,-4 7,4 0,8 -7,4 -7,-4" fill="#38BDF8" />
+      <text x="0" y="18" class="font-sans node-text" text-anchor="middle">AKS SPOKE</text>
     </g>
 
-    <!-- Spoke 2: PaaS & SQL (Top Right) -->
-    <g transform="translate(325, 80)">
-      <line x1="-25" y1="15" x2="-90" y2="35" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="2 2" opacity="0.7" />
-      <circle cx="0" cy="0" r="24" fill="#1E293B" stroke="#0078D4" stroke-width="1.5" />
-      <!-- Database cylinder -->
-      <ellipse cx="0" cy="-4" rx="8" ry="3" fill="#0078D4" />
-      <path d="M-8 -4 L-8 4 C-8 6 8 6 8 4 L8 -4 Z" fill="#0078D4" opacity="0.8" />
-      <text x="0" y="18" fill="#94A3B8" class="font-main" font-size="9px" font-weight="600" text-anchor="middle">PAAS SPOKE</text>
+    <!-- Spoke 2: PaaS Data & Secrets (Top-Right) -->
+    <g transform="translate(339, 90)">
+      <circle cx="0" cy="0" r="25" fill="#0F172A" stroke="#60A5FA" stroke-width="1.6" />
+      <!-- SQL Database cylinder -->
+      <ellipse cx="0" cy="-4" rx="7" ry="2.5" fill="#60A5FA" />
+      <path d="M-7 -4 L-7 3 C-7 5 7 5 7 3 L7 -4 Z" fill="#60A5FA" opacity="0.8" />
+      <text x="0" y="18" class="font-sans node-text" text-anchor="middle">PAAS SPOKE</text>
     </g>
 
-    <!-- Spoke 3: DevSecOps CI/CD (Bottom Left) -->
-    <g transform="translate(85, 220)">
-      <line x1="25" y1="-15" x2="90" y2="-70" stroke="#10B981" stroke-width="1.5" stroke-dasharray="2 2" opacity="0.7" />
-      <circle cx="0" cy="0" r="24" fill="#1E293B" stroke="#10B981" stroke-width="1.5" />
-      <!-- Pipeline Infinity / Check icon -->
-      <circle cx="0" cy="0" r="6" fill="#10B981" />
-      <text x="0" y="18" fill="#94A3B8" class="font-main" font-size="9px" font-weight="600" text-anchor="middle">DEVSECOPS</text>
+    <!-- Spoke 3: DevSecOps & Security Gates (Bottom-Left) -->
+    <g transform="translate(95, 215)">
+      <circle cx="0" cy="0" r="25" fill="#0F172A" stroke="#10B981" stroke-width="1.6" />
+      <!-- Security Shield icon -->
+      <path d="M0 -7 L6 -4 L6 1 C6 5 0 8 0 8 C0 8 -6 5 -6 1 L-6 -4 Z" fill="#10B981" />
+      <text x="0" y="18" class="font-sans node-text" text-anchor="middle">DEVSECOPS</text>
     </g>
 
-    <!-- Spoke 4: On-Premises ExpressRoute (Bottom Right) -->
-    <g transform="translate(325, 220)">
-      <line x1="-25" y1="-15" x2="-90" y2="-70" stroke="#FF9900" stroke-width="1.5" stroke-dasharray="2 2" opacity="0.7" />
-      <circle cx="0" cy="0" r="24" fill="#1E293B" stroke="#FF9900" stroke-width="1.5" />
-      <!-- Server Rack -->
-      <rect x="-8" y="-7" width="16" height="14" rx="2" fill="#FF9900" opacity="0.8" />
-      <text x="0" y="18" fill="#94A3B8" class="font-main" font-size="9px" font-weight="600" text-anchor="middle">EXPRESSROUTE</text>
+    <!-- Spoke 4: On-Premises ExpressRoute (Bottom-Right) -->
+    <g transform="translate(339, 215)">
+      <circle cx="0" cy="0" r="25" fill="#0F172A" stroke="#F59E0B" stroke-width="1.6" />
+      <!-- Router / Network node -->
+      <rect x="-7" y="-6" width="14" height="12" rx="2" fill="#F59E0B" />
+      <circle cx="-3" cy="0" r="1" fill="#0F172A" />
+      <circle cx="0" cy="0" r="1" fill="#0F172A" />
+      <circle cx="3" cy="0" r="1" fill="#0F172A" />
+      <text x="0" y="18" class="font-sans node-text" text-anchor="middle">EXPRESSROUTE</text>
     </g>
 
-    <!-- Bottom Status Pill in Right Card -->
-    <g transform="translate(45, 265)">
-      <rect width="320" height="24" rx="12" fill="#0F172A" stroke="#334155" stroke-width="1" />
-      <circle cx="16" cy="12" r="4" fill="#10B981" />
-      <text x="28" y="16" fill="#CBD5E1" class="font-main" font-size="10px" font-weight="600">ZERO TRUST PERIMETER • 98%+ HIGH AVAILABILITY</text>
+    <!-- Status Bar at Bottom of Console -->
+    <g transform="translate(24, 266)">
+      <rect width="386" height="26" rx="13" fill="#0B132B" stroke="#1E293B" stroke-width="1" />
+      <circle cx="16" cy="13" r="4" fill="#10B981" />
+      <text x="28" y="17" fill="#CBD5E1" class="font-sans" font-size="10px" font-weight="600">ZERO TRUST PERIMETER • PRIVATE ENDPOINTS • 98%+ SLA</text>
     </g>
   </g>
 </svg>
